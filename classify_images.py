@@ -71,7 +71,7 @@ def classify_images(images_dir, results_dic, model):
         image_classification = classifier(images_dir + f,model)
         #print("file name" + f + " image_classification" + image_classification)             
         for classify  in image_classification:
-            image_classification.lower()
+            image_classification.lower().strip()
             
         results_dic[f].append(image_classification) 
         #classifylist = [x.split(',') for x in image_classification]

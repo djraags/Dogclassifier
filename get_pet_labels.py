@@ -44,18 +44,19 @@ def get_pet_labels(image_dir):
     fnames = listdir(image_dir)
     petname = ""
     results_dic = dict()
-    for f in fnames:        
-        word = f.lower().split("_")
-        for w in word:
-            if(w.isalpha()):
-                #print(w)
-                petname += w + " "
-        if(f not in results_dic):
-            petlist  = list()
-            results_dic[f] = [petname.rstrip()]
-        else:
-            print("key alredy in dictionary")
-        petname = ""
+    for f in fnames:   
+        if f[0] != ".":
+            word = f.lower().split("_")
+            for w in word:
+                if(w.isalpha()):
+                    #print(w)
+                    petname += w + " "
+            if(f not in results_dic):
+                petlist  = list()
+                results_dic[f] = [petname.rstrip()]
+            else:
+                print("key already in dictionary")
+            petname = ""
 
       
    # print(results_dic)
